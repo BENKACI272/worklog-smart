@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#102b52">
+<title>سجل العمل الذكي</title>
+<style>
+:root{--bg:#f3f6fb;--card:#fff;--fg:#182235;--mut:#66758b;--pri:#2458a6;--navy:#102b52;--line:#dbe3ef;--green:#16845b;--orange:#c66a18;--red:#c23c46;--soft:#eaf1fb;--shadow:0 8px 24px #16345b12}
+*{box-sizing:border-box}html{min-height:100%;scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Noto Sans Arabic",Tahoma,Arial,sans-serif}
+button,input,select{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:10px 13px;font-weight:700;background:#e8eef7;color:var(--navy)}button:disabled{opacity:.5;cursor:not-allowed}
+.app{max-width:1100px;margin:auto;padding:14px}.hero{background:linear-gradient(130deg,#102b52,#2458a6 65%,#3b83c6);color:white;padding:20px;border-radius:22px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:180px;height:180px;border:1px solid #ffffff25;border-radius:50%;left:-40px;top:-65px;box-shadow:0 0 0 22px #ffffff0b,0 0 0 44px #ffffff08}.heroTop{display:flex;align-items:center;justify-content:space-between;gap:12px;position:relative;z-index:1}.brand{font-size:22px;font-weight:900}.sub{font-size:13px;opacity:.85;margin-top:4px}.hero button{background:#ffffff20;color:white;border:1px solid #ffffff40}.toolbar{display:flex;gap:8px;align-items:center;margin:14px 0;flex-wrap:wrap}.toolbar select{flex:1;min-width:180px}.field,select,input{border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:11px;padding:10px;min-width:0}.toolbar button{padding:10px 13px}.primary{background:var(--pri);color:#fff}.danger{background:#fff0f0;color:var(--red)}.good{background:#e5f7ef;color:var(--green)}.orange{background:#fff1e4;color:var(--orange)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:12px 0}.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:var(--shadow);min-width:0}.stat .label{font-size:12px;color:var(--mut)}.stat .value{font-size:21px;font-weight:900;margin-top:6px;overflow-wrap:anywhere}.stat .hint{font-size:11px;color:var(--mut);margin-top:3px}.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:15px;margin:12px 0;box-shadow:var(--shadow)}.panelHead{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px}.panel h2{font-size:17px;margin:0}.weatherRow{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.weatherIcon{font-size:42px}.weatherMain{font-size:26px;font-weight:900}.muted{color:var(--mut);font-size:13px}.weatherDetails{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.chip{background:var(--soft);border-radius:99px;padding:7px 10px;font-size:12px}.quick{display:grid;grid-template-columns:1fr 1fr;gap:8px}.quick button{padding:13px}.tableWrap{overflow:auto;border:1px solid var(--line);border-radius:13px}table{width:100%;border-collapse:collapse;min-width:650px;font-size:13px}thead th{background:var(--pri);color:white;padding:11px 7px;white-space:nowrap}tbody td{border-top:1px solid var(--line);padding:9px 7px;text-align:center;white-space:nowrap}tbody tr{cursor:pointer}tbody tr:hover{background:#f0f5fc}tbody tr.off{background:#fff4eb}tbody tr.today{outline:2px solid #76a8f4;outline-offset:-2px}.badge{display:inline-block;border-radius:99px;padding:4px 8px;font-size:11px;font-weight:800}.badge.yes{background:#e3f7ed;color:#087b50}.badge.no{background:#fff0e3;color:#a84d0b}.badge.none{background:#edf0f5;color:#6b7587}.bottomActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.note{font-size:12px;line-height:1.7;color:var(--mut)}.twoCol{display:grid;grid-template-columns:1fr 1fr;gap:12px}.formGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.formField label{display:block;font-size:13px;color:var(--mut);margin-bottom:5px}.formField input,.formField select{width:100%}.overlay{display:none;position:fixed;inset:0;background:#07162bb8;z-index:10;align-items:flex-end;justify-content:center;padding:0}.overlay.show{display:flex}.sheet{width:100%;max-width:650px;max-height:92dvh;overflow:auto;background:var(--card);border-radius:22px 22px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom));box-shadow:0 -10px 40px #0002}.sheet h2{margin:0 0 14px;font-size:19px}.sheetActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.sheetActions button{flex:1}.toolsGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.status{font-size:12px;margin-top:7px;min-height:18px;color:var(--mut)}footer{text-align:center;color:var(--mut);font-size:11px;padding:18px 8px}
+@media(max-width:680px){.app{padding:9px}.hero{padding:16px;border-radius:18px}.brand{font-size:20px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.stat{padding:12px}.stat .value{font-size:19px}.twoCol{grid-template-columns:1fr}.formGrid{grid-template-columns:1fr 1fr}.panel{padding:12px}.toolbar{gap:6px}.toolbar select{min-width:120px}.toolbar button{padding:9px}.weatherMain{font-size:23px}}
+@media(max-width:380px){.formGrid{grid-template-columns:1fr}.quick{grid-template-columns:1fr}.brand{font-size:18px}}
+@media print{body{background:#fff}.hero,.toolbar,.quick,.bottomActions,footer,.noPrint{display:none!important}.app{max-width:none;padding:0}.panel,.stat{box-shadow:none;break-inside:avoid}.grid{grid-template-columns:repeat(4,1fr)}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="hero">
+  <div class="heroTop">
+    <div><div class="brand">◈ سجل العمل الذكي</div><div class="sub" id="welcome">سجل يوميات العمل والمدفوعات في مكان واحد</div></div>
+    <button id="nameBtn" title="تغيير الاسم">👤 الاسم</button>
+  </div>
+</header>
+
+<div class="toolbar noPrint">
+  <button id="prevMonth" aria-label="الشهر السابق">‹</button>
+  <select id="monthSelect" aria-label="اختيار الشهر"></select>
+  <button id="nextMonth" aria-label="الشهر التالي">›</button>
+  <button class="primary" id="toolsBtn">⚙ الأدوات</button>
+</div>
+
+<div class="grid">
+  <div class="stat"><div class="label">أيام العمل</div><div class="value" id="worked">0</div><div class="hint">يوم مسجل كعمل</div></div>
+  <div class="stat"><div class="label">أيام العطلة</div><div class="value" id="daysOff">0</div><div class="hint">يوم مسجل كعطلة</div></div>
+  <div class="stat"><div class="label">المستحق حسب السجل</div><div class="value" id="earned">0 دج</div><div class="hint">وفق الأسعار المحددة داخل التطبيق</div></div>
+  <div class="stat"><div class="label">المقبوض المسجل</div><div class="value" id="received">0 دج</div><div class="hint">أفونس + مدفوعات</div></div>
+</div>
+
+<section class="panel">
+  <div class="panelHead"><h2>🌤 الطقس والموقع</h2><button class="primary" id="locBtn">📍 تحديد موقعي</button></div>
+  <div class="weatherRow">
+    <div class="weatherIcon" id="weatherIcon">🌤️</div>
+    <div><div class="weatherMain" id="temperature">--°</div><div id="weatherText" class="muted">حدّد موقعك لعرض الطقس الحالي</div><div id="placeText" class="muted">لم يتم تحديد الموقع بعد</div></div>
+  </div>
+  <div class="weatherDetails" id="weatherDetails"><span class="chip">الرطوبة: --</span><span class="chip">الرياح: --</span></div>
+  <div class="status" id="locStatus" role="status"></div>
+  <div class="note">يحتاج تحديد الموقع إلى إذن من الهاتف واتصال بالإنترنت. يعمل GPS عادةً عبر HTTPS، مثل GitHub Pages. بيانات الطقس من خدمة Open-Meteo دون مفتاح API.</div>
+</section>
+
+<section class="panel">
+  <div class="panelHead"><h2 id="tableTitle">جدول الشهر</h2><span class="muted">اضغط على أي يوم لتعديله</span></div>
+  <div class="quick noPrint"><button class="good" id="quickYes">✓ نعم، عملت اليوم</button><button class="orange" id="quickNo">✕ لا، عطلة اليوم</button></div>
+  <div class="tableWrap" style="margin-top:12px">
+    <table>
+      <thead><tr><th>#</th><th>التاريخ</th><th>العمل</th><th>المكان</th><th>أفونس (دج)</th><th>ديپلاصمو</th><th>مدفوعات (دج)</th></tr></thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+  <div class="bottomActions noPrint">
+    <button class="primary" id="exportCsv">⬇ تصدير CSV / Excel</button>
+    <button id="copyTable">📋 نسخ الجدول</button>
+    <button id="printBtn">🖨 طباعة / PDF</button>
+  </div>
+  <p class="note">تنبيه: البيانات تحفظ على هذا الجهاز والمتصفح فقط. صدّر نسخة احتياطية بانتظام، خصوصًا قبل حذف التطبيق أو تغيير الهاتف.</p>
+</section>
+
+<section class="panel">
+  <div class="panelHead"><h2>🧮 ملخص الحساب</h2><span class="muted">للمراجعة الشخصية</span></div>
+  <div class="twoCol">
+    <div><div class="muted">إجمالي المقبوض (أفونس + مدفوعات)</div><div class="value" style="font-size:20px;font-weight:900" id="received2">0 دج</div></div>
+    <div><div class="muted">المتبقي التقديري</div><div class="value" style="font-size:20px;font-weight:900" id="remaining">0 دج</div></div>
+  </div>
+  <p class="note">الحساب يعتمد على أسعار اليوميات الموجودة في الإعدادات. تأكد من إدخال المبالغ بنفس الوحدة (دج) قبل الاعتماد عليه محاسبيًا.</p>
+</section>
+<footer>سجل العمل الذكي · نسخة محلية قابلة للنشر على GitHub Pages</footer>
+</div>
+
+<div class="overlay" id="editOverlay"><div class="sheet">
+  <h2 id="editTitle">تعديل اليوم</h2>
+  <div class="formGrid">
+    <div class="formField"><label for="fDate">التاريخ</label><input id="fDate" type="date"></div>
+    <div class="formField"><label for="fWork">العمل</label><select id="fWork"><option value="">— غير محدد —</option><option value="نعم">نعم</option><option value="لا">لا</option></select></div>
+    <div class="formField"><label for="fPlace">المكان</label><input id="fPlace" list="placeOptions" placeholder="مثال: حاسي مسعود"><datalist id="placeOptions"></datalist></div>
+    <div class="formField"><label for="fAdvance">أفونس (دج)</label><input id="fAdvance" inputmode="decimal" placeholder="0"></div>
+    <div class="formField"><label for="fMove">ديپلاصمو / تفاصيل التنقل</label><input id="fMove" placeholder="اكتب التفاصيل أو اتركها فارغة"></div>
+    <div class="formField"><label for="fPayment">مدفوعات (دج)</label><input id="fPayment" inputmode="decimal" placeholder="0"></div>
+  </div>
+  <div class="status" id="editStatus"></div>
+  <div class="sheetActions"><button class="primary" id="saveDay">حفظ اليوم</button><button id="useGpsForDay">📍 املأ المكان من GPS</button><button class="danger" id="deleteDay">مسح اليوم</button><button id="cancelEdit">إلغاء</button></div>
+</div></div>
+
+<div class="overlay" id="toolsOverlay"><div class="sheet">
+  <h2>⚙ أدوات سجل العمل</h2>
+  <div class="toolsGrid">
+    <button id="toolCopy">📋 نسخ الجدول</button><button id="toolCsv">⬇ تصدير CSV</button>
+    <button id="toolBackup">💾 تنزيل نسخة احتياطية</button><button id="toolRestore">📂 استعادة نسخة</button>
+    <button id="toolNewYear">＋ إضافة سنة</button><button id="toolMoveMonth">⇄ نقل بيانات الشهر</button>
+    <button id="toolRates">🧮 إعداد أسعار اليوميات</button><button class="danger" id="toolClear">🗑 مسح بيانات الشهر</button>
+  </div>
+  <input type="file" id="restoreFile" accept="application/json,.json" hidden>
+  <div class="status" id="toolStatus"></div>
+  <div class="sheetActions"><button id="closeTools">إغلاق</button></div>
+</div></div>
+
+<div class="overlay" id="simpleOverlay"><div class="sheet">
+  <h2 id="simpleTitle">إعدادات</h2><div id="simpleContent"></div>
+  <div class="sheetActions"><button class="primary" id="simpleOk">تأكيد</button><button id="simpleCancel">إلغاء</button></div>
+</div></div>
+
+<script>
+(function(){
+'use strict';
+const STORE='worklog-smart-v2', NAMEKEY='worklog-smart-name-v2', RATEKEY='worklog-smart-rates-v2';
+const MONTHS=['جانفي','فيفري','مارس','أفريل','ماي','جوان','جويلية','أوت','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+const SAHARA=['حاسي مسعود','حاسي الرمل','أدرار','ورقلة','تمنراست','إليزي','تندوف','عين صالح','عين قزام','برج باجي مختار','تيميمون','جانت','بني عباس'];
+const PLACES=['الجزائر','وهران','قسنطينة','سطيف','برج بوعريريج','باتنة','بسكرة','ورقلة','حاسي مسعود','حاسي الرمل','أدرار','تمنراست','إليزي','تندوف','عين صالح','عين قزام','تيميمون','جانت','بني عباس','غرداية','الأغواط','الجلفة','المسيلة','بجاية','تيزي وزو','عنابة','سكيكدة','تبسة','الوادي','توقرت','المنيعة','أولاد جلال','بشار','البيض','النعامة'];
+const $=id=>document.getElementById(id);
+let data={}, current=monthKey(new Date()), editingIndex=0, userName='';
+let rates={sahara:200,other:150,move:50};
+function monthKey(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')}
+function dateKey(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function daysInMonth(key){let [y,m]=key.split('-').map(Number);return new Date(y,m,0).getDate()}
+function blankRow(){return {date:'',work:'',place:'',advance:'',move:'',payment:''}}
+function ensureMonth(key){if(!data[key])data[key]=Array.from({length:daysInMonth(key)},blankRow);else{let n=daysInMonth(key);while(data[key].length<n)data[key].push(blankRow());if(data[key].length>n)data[key]=data[key].slice(0,n)}}
+function isEmpty(r){return !r.date&&!r.work&&!r.place&&!String(r.advance??'')&&!r.move&&!String(r.payment??'')}
+function save(){try{localStorage.setItem(STORE,JSON.stringify({data,current}))}catch(e){alert('تعذر حفظ البيانات في المتصفح. صدّر نسخة احتياطية.')} }
+function load(){try{let s=JSON.parse(localStorage.getItem(STORE)||'null');if(s&&s.data){data=s.data;current=s.current||current}}catch(e){}try{userName=localStorage.getItem(NAMEKEY)||'';let r=JSON.parse(localStorage.getItem(RATEKEY)||'null');if(r)rates={...rates,...r}}catch(e){}ensureMonth(current);$('welcome').textContent=userName?'مرحبًا '+userName+' — سجّل أيام عملك بسهولة':'سجل يوميات العمل والمدفوعات في مكان واحد';render()}
+function money(n){let v=Number(n||0);return v.toLocaleString('fr-FR')+' دج'}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function earned(r){let total=0;if(r.work==='نعم'&&r.place.trim()){let sah=SAHARA.some(p=>r.place.includes(p));total+=sah?Number(rates.sahara):Number(rates.other)}if(r.move.trim())total+=Number(rates.move);return total}
+function render(){ensureMonth(current);let [y,m]=current.split('-').map(Number);$('monthSelect').innerHTML=Object.keys(data).sort().map(k=>{let [yy,mm]=k.split('-').map(Number);let marked=data[k].some(r=>!isEmpty(r))?' •':'';return `<option value="${k}">${MONTHS[mm-1]} ${yy}${marked}</option>`}).join('');$('monthSelect').value=current;$('tableTitle').textContent='جدول '+MONTHS[m-1]+' '+y;
+let w=0,o=0,earn=0,adv=0,pay=0,body='';let today=dateKey(new Date());
+data[current].forEach((r,i)=>{if(r.work==='نعم')w++;if(r.work==='لا')o++;earn+=earned(r);adv+=Number(r.advance||0)||0;pay+=Number(r.payment||0)||0;
+body+=`<tr data-i="${i}" class="${r.work==='لا'?'off ':''}${r.date===today?'today':''}"><td>${i+1}</td><td>${r.date?esc(r.date.slice(8)+'-'+r.date.slice(5,7)+'-'+r.date.slice(0,4)):''}</td><td>${r.work?`<span class="badge ${r.work==='نعم'?'yes':'no'}">${r.work}</span>`:'<span class="badge none">—</span>'}</td><td>${esc(r.place)}</td><td>${r.advance!==''?esc(r.advance):''}</td><td>${esc(r.move)}</td><td>${r.payment!==''?esc(r.payment):''}</td></tr>`});
+$('tableBody').innerHTML=body;$('worked').textContent=w;$('daysOff').textContent=o;$('earned').textContent=money(earn);$('received').textContent=money(adv+pay);$('received2').textContent=money(adv+pay);$('remaining').textContent=money(earn-adv-pay);
+$('placeOptions').innerHTML=[...new Set([...PLACES,...data[current].map(r=>r.place).filter(Boolean)])].map(p=>`<option value="${esc(p)}"></option>`).join('');
+}
+function openEditor(i){editingIndex=i;let r=data[current][i]||blankRow();$('editTitle').textContent='تعديل اليوم رقم '+(i+1);$('fDate').value=r.date||'';$('fWork').value=r.work||'';$('fPlace').value=r.place||'';$('fAdvance').value=r.advance??'';$('fMove').value=r.move||'';$('fPayment').value=r.payment??'';$('editStatus').textContent='';show('editOverlay')}
+function show(id){$(id).classList.add('show')}function hide(id){$(id).classList.remove('show')}
+function goMonth(delta){let [y,m]=current.split('-').map(Number);let d=new Date(y,m-1+delta,1);current=monthKey(d);ensureMonth(current);save();render()}
+function todayRow(work){let d=new Date(),key=dateKey(d);current=monthKey(d);ensureMonth(current);let arr=data[current],idx=arr.findIndex(r=>r.date===key);if(idx<0)idx=arr.findIndex(isEmpty);if(idx<0){alert('لا توجد خانة فارغة لهذا اليوم في الشهر.');return}arr[idx].date=key;arr[idx].work=work;if(work==='نعم'&&!arr[idx].place){for(let j=idx-1;j>=0;j--)if(arr[j].place){arr[idx].place=arr[j].place;break}}save();render();openEditor(idx)}
+function currentRows(){return data[current]||[]}
+function tableText(){let rows=[['التاريخ','العمل','المكان','أفونس (دج)','ديپلاصمو','مدفوعات (دج)']];currentRows().forEach(r=>rows.push([r.date,r.work,r.place,r.advance,r.move,r.payment]));return rows.map(a=>a.join('\t')).join('\n')}
+function csv(){let rows=[['التاريخ','العمل','المكان','أفونس (دج)','ديپلاصمو','مدفوعات (دج)']];currentRows().forEach(r=>rows.push([r.date,r.work,r.place,r.advance,r.move,r.payment]));let content='\\ufeff'+rows.map(row=>row.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(';')).join('\r\n');let blob=new Blob([content],{type:'text/csv;charset=utf-8;'});download(blob,'sijil-amal-'+current+'.csv')}
+function download(blob,name){let url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+async function copyTable(){let t=tableText();try{await navigator.clipboard.writeText(t);alert('تم نسخ الجدول. يمكنك لصقه في Excel أو رسالة.')}catch(e){let ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();let ok=false;try{ok=document.execCommand('copy')}catch(_){}ta.remove();alert(ok?'تم نسخ الجدول.':'تعذر النسخ تلقائيًا؛ صدّر CSV بدلًا من ذلك.')}}
+function backup(){download(new Blob([JSON.stringify({data,current,userName,rates},null,2)],{type:'application/json'}),'worklog-backup-'+dateKey(new Date())+'.json')}
+function locationWeather(target){let status=target==='day'?'editStatus':'locStatus';$(status).textContent='جارٍ تحديد الموقع...';if(!navigator.geolocation){$(status).textContent='المتصفح لا يدعم تحديد الموقع.';return}
+navigator.geolocation.getCurrentPosition(async pos=>{let lat=pos.coords.latitude,lon=pos.coords.longitude;let place='';try{let url=`https://geocoding-api.open-meteo.com/v1/reverse?latitude=${lat}&longitude=${lon}&language=ar&format=json`;let res=await fetch(url);if(res.ok){let j=await res.json();let x=j.results&&j.results[0];if(x)place=[x.name,x.admin1].filter(Boolean).join('، ')}}catch(e){}
+if(target==='day'){$('fPlace').value=place||$('fPlace').value||`${lat.toFixed(4)}, ${lon.toFixed(4)}`;$('editStatus').textContent=place?'تم تحديد المكان: '+place:'تم تحديد الإحداثيات، اكتب اسم المكان إن لزم.'}
+else{$('placeText').textContent=place||`الموقع: ${lat.toFixed(4)}, ${lon.toFixed(4)}`;$('locStatus').textContent='تم تحديد الموقع بنجاح.';getWeather(lat,lon,place)}
+},err=>{$(status).textContent=err.code===1?'رفضت إذن الموقع. فعّله من إعدادات المتصفح.':err.code===2?'الموقع غير متاح؛ تأكد من تشغيل GPS.':'انتهت مهلة تحديد الموقع؛ جرّب في مكان مفتوح.'},{enableHighAccuracy:true,timeout:20000,maximumAge:300000})}
+async function getWeather(lat,lon,place){$('weatherText').textContent='جارٍ جلب الطقس...';try{let url=`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code,wind_speed_10m&timezone=auto`;let res=await fetch(url);if(!res.ok)throw Error('weather');let j=await res.json(),c=j.current,code=c.weather_code;let map=weatherInfo(code,Number(c.is_day));$('weatherIcon').textContent=map[0];$('temperature').textContent=Math.round(c.temperature_2m)+'°C';$('weatherText').textContent=map[1]+' · المحسوس '+Math.round(c.apparent_temperature)+'°C';$('weatherDetails').innerHTML=`<span class="chip">الرطوبة: ${c.relative_humidity_2m}%</span><span class="chip">الرياح: ${Math.round(c.wind_speed_10m)} كم/س</span><span class="chip">التساقط: ${c.precipitation} مم</span>`;if(place)$('placeText').textContent=place;let t=c.time?c.time.replace('T',' '):'';$('locStatus').textContent='آخر تحديث للطقس: '+t+' · المصدر: Open-Meteo'}catch(e){$('weatherText').textContent='تعذر جلب الطقس. تحقق من الإنترنت ثم حاول مجددًا.'}}
+function weatherInfo(c,day){if(c===0)return[day?'☀️':'🌙','سماء صافية'];if([1,2,3].includes(c))return['⛅','غائم جزئيًا أو غائم'];if([45,48].includes(c))return['🌫️','ضباب'];if([51,53,55,56,57].includes(c))return['🌦️','رذاذ'];if([61,63,65,66,67,80,81,82].includes(c))return['🌧️','أمطار'];if([71,73,75,77,85,86].includes(c))return['❄️','ثلوج'];if([95,96,99].includes(c))return['⛈️','عواصف رعدية'];return['🌤️','حالة جوية متغيرة']}
+function simpleDialog(title,html,onOk){$('simpleTitle').textContent=title;$('simpleContent').innerHTML=html;show('simpleOverlay');$('simpleOk').onclick=()=>{onOk();hide('simpleOverlay')};$('simpleCancel').onclick=()=>hide('simpleOverlay')}
+$('prevMonth').onclick=()=>goMonth(-1);$('nextMonth').onclick=()=>goMonth(1);$('monthSelect').onchange=e=>{current=e.target.value;ensureMonth(current);save();render()};
+$('quickYes').onclick=()=>todayRow('نعم');$('quickNo').onclick=()=>todayRow('لا');$('tableBody').onclick=e=>{let tr=e.target.closest('tr[data-i]');if(tr)openEditor(Number(tr.dataset.i))};
+$('saveDay').onclick=()=>{let date=$('fDate').value;if(date&&!date.startsWith(current)){let [y,m]=date.slice(0,7).split('-').map(Number);let target=monthKey(new Date(y,m-1,1));if(!confirm('التاريخ المختار خارج الشهر الحالي. سيتم حفظه في الشهر الحالي ضمن خانة اليوم رقم '+(editingIndex+1)+'. متابعة؟'))return}
+data[current][editingIndex]={date,work:$('fWork').value,place:$('fPlace').value.trim(),advance:parseMoney($('fAdvance').value),move:$('fMove').value.trim(),payment:parseMoney($('fPayment').value)};save();hide('editOverlay');render()};
+function parseMoney(v){v=String(v||'').trim().replace(/\s/g,'').replace(/,/g,'.');if(!v)return'';let n=Number(v);return Number.isFinite(n)?n:v}
+$('deleteDay').onclick=()=>{if(confirm('هل تريد مسح بيانات هذا اليوم؟')){data[current][editingIndex]=blankRow();save();hide('editOverlay');render()}};
+$('cancelEdit').onclick=()=>hide('editOverlay');$('useGpsForDay').onclick=()=>locationWeather('day');$('locBtn').onclick=()=>locationWeather('weather');
+$('copyTable').onclick=copyTable;$('toolCopy').onclick=()=>{hide('toolsOverlay');copyTable()};$('exportCsv').onclick=()=>csv();$('toolCsv').onclick=()=>{hide('toolsOverlay');csv()};$('printBtn').onclick=()=>window.print();
+$('toolsBtn').onclick=()=>show('toolsOverlay');$('closeTools').onclick=()=>hide('toolsOverlay');$('toolBackup').onclick=backup;
+$('toolRestore').onclick=()=>$('restoreFile').click();$('restoreFile').onchange=async e=>{let f=e.target.files[0];if(!f)return;try{let o=JSON.parse(await f.text());if(!o.data)throw Error();if(!confirm('ستُستبدل بيانات التطبيق الحالية بالنسخة المختارة. هل تتابع؟'))return;data=o.data;current=o.current||current;if(o.rates)rates={...rates,...o.rates};if(o.userName)userName=o.userName;Object.keys(data).forEach(ensureMonth);save();localStorage.setItem(RATEKEY,JSON.stringify(rates));localStorage.setItem(NAMEKEY,userName);render();alert('تمت استعادة النسخة.')}catch(err){alert('ملف النسخة غير صالح.')}e.target.value=''};
+$('toolNewYear').onclick=()=>simpleDialog('إضافة سنة جديدة','<div class="formField"><label>السنة</label><input id="newYearInput" type="number" value="'+(Number(current.slice(0,4))+1)+'"></div>',()=>{let y=Number($('newYearInput').value);if(y<2000||y>2100){alert('أدخل سنة بين 2000 و2100');return}for(let m=1;m<=12;m++)ensureMonth(y+'-'+String(m).padStart(2,'0'));current=y+'-01';save();render()});
+$('toolClear').onclick=()=>{if(confirm('هل تريد مسح جميع بيانات هذا الشهر؟ لا يمكن التراجع عن ذلك إلا إذا لديك نسخة احتياطية.')){data[current]=Array.from({length:daysInMonth(current)},blankRow);save();render();$('toolStatus').textContent='تم مسح بيانات الشهر.'}};
+$('toolMoveMonth').onclick=()=>{let opts=Object.keys(data).sort().map(k=>`<option value="${k}" ${k===current?'selected':''}>${MONTHS[Number(k.slice(5))-1]} ${k.slice(0,4)}</option>`).join('');simpleDialog('نقل بيانات الشهر','<p class="note">سينقل هذا الخيار بيانات الشهر الحالي إلى شهر آخر. إذا كان الشهر الهدف يحتوي على بيانات، ستحتاج لتأكيد استبدالها.</p><div class="formField"><label>الشهر الهدف</label><select id="moveTarget">'+opts+'</select></div>',()=>{let target=$('moveTarget').value;if(target===current)return;ensureMonth(target);if(data[target].some(r=>!isEmpty(r))&&!confirm('الشهر الهدف يحتوي على بيانات. استبدالها؟'))return;data[target]=data[current].map(r=>({...r}));current=target;save();render()})};
+$('toolRates').onclick=()=>simpleDialog('أسعار اليوميات (دج)','<p class="note">راجع هذه القيم قبل استعمال الملخص المالي. القيم الافتراضية هنا 200 و150 و50 دج، ويمكنك تغييرها حسب الاتفاق الحقيقي.</p><div class="formGrid"><div class="formField"><label>يومية الصحراء (دج)</label><input id="rateS" type="number" value="'+rates.sahara+'"></div><div class="formField"><label>يومية التل / أماكن أخرى (دج)</label><input id="rateO" type="number" value="'+rates.other+'"></div><div class="formField"><label>إضافة ديپلاصمو (دج)</label><input id="rateM" type="number" value="'+rates.move+'"></div></div>',()=>{rates={sahara:Number($('rateS').value)||0,other:Number($('rateO').value)||0,move:Number($('rateM').value)||0};localStorage.setItem(RATEKEY,JSON.stringify(rates));render()});
+$('nameBtn').onclick=()=>simpleDialog('اسم المستخدم','<div class="formField"><label>الاسم الذي يظهر في التطبيق</label><input id="userNameInput" maxlength="40" value="'+esc(userName)+'" placeholder="اكتب اسمك"></div>',()=>{userName=$('userNameInput').value.trim();localStorage.setItem(NAMEKEY,userName);$('welcome').textContent=userName?'مرحبًا '+userName+' — سجّل أيام عملك بسهولة':'سجل يوميات العمل والمدفوعات في مكان واحد'});
+document.querySelectorAll('.overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)hide(o.id)}));
+load();
+})();
+</script>
+</body>
+</html>
